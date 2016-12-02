@@ -29,7 +29,6 @@ public abstract class Creature{
                this.str = str;
            }
        }
-       
        randomDamage = new Random();
    }
    

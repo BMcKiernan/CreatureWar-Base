@@ -14,4 +14,8 @@ public class Human extends Creature
     {
         super(hp,10,30,str,5,18);
     }
+
+    public Human(int hp,int minHp,int maxHp,int str,int minStr,int maxStr){
+        super(hp,minHp,maxHp,str,minStr,maxStr);
+    }
 }
