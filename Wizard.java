@@ -22,6 +22,10 @@ public class Wizard extends Human
     protected int damage(){
        wizardMagic = magic.nextInt(100)+1;
        int damage = randomDamage.nextInt(str)+1;
+       
+       if(wizardMagic<=25)
+            damage += 10;
+       
        if(wizardMagic<=10)
            damage += 40;
           
