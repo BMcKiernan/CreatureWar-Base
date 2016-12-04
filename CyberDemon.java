@@ -15,7 +15,7 @@ public class CyberDemon extends Demon
     /**
      * Constructor for objects of class CyberDemon
      */
-    public CyberDemon(int hp, int str)
+    public CyberDemon()
     {
         super(Randomizer.nextInt(MAX_HP-MIN_HP)+MIN_HP,
               Randomizer.nextInt(MAX_STR-MIN_STR)+MIN_STR);

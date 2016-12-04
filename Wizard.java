@@ -15,7 +15,7 @@ public class Wizard extends Human
       /**
      * Constructor for objects of class Wizard
      */
-    public Wizard(int hp, int str)
+    public Wizard()
     {
         super(Randomizer.nextInt(MAX_HP-MIN_HP)+MIN_HP,
               Randomizer.nextInt(MAX_STR-MIN_STR)+MIN_STR);
