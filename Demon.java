@@ -3,27 +3,21 @@ import java.util.Random;
  * Write a description of class Demon here.
  * 
  * @author Brian McKiernan 
- * @version (a version number or a date)
+ * @version Version 0.1
  */
 public abstract class Demon extends Creature
 {
-    private int str;
-    protected Random magic;
-    protected int demonMagic;
     /**
      * Constructor for objects of class Demon
      */
-    public Demon(int hp,int minHp,int maxHp,int str,int minStr,int maxStr)
+    public Demon(int hp, int str)
     {
-        super(hp,minHp,maxHp,str,minStr,maxStr);
-        this.str = str;
-        magic = new Random();
+        super(hp,str);
     }
 
     protected int damage(){
-       demonMagic = magic.nextInt(100)+1;
-       int damage = randomDamage.nextInt(str)+1;
-       if(demonMagic<=5)
+       int damage = super.damage();
+       if(Randomizer.nextInt(100)<=5)
            damage += 50;
           
        return damage;

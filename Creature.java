@@ -1,4 +1,4 @@
-import java.util.Random;
+
 /**
  * Write a description of class Creature here.
  * 
@@ -8,8 +8,7 @@ import java.util.Random;
 public abstract class Creature{
    private int hp;
    private int str;
-   
-   Random randomDamage;
+
   
   
    public Creature(){
@@ -17,24 +16,20 @@ public abstract class Creature{
       str = 10;
    }
    
-   public Creature(int hp, int minHp, int maxHp, int str, int minStr, int maxStr){
-       if(hp > 4){
-           if(hp > minHp && hp < maxHp){
-               this.hp = hp;
-           }
-        }
-
-       if(str > 4){
-           if(str > minStr && str < maxStr){
-               this.str = str;
-           }
-       }
-       randomDamage = new Random();
-   }
+   public Creature (int hp, int str){
+       if(str>4)
+           this.str = str;
+       else
+            System.err.print("Error: Minimum strength is 5.");
+            
+       if(hp>4)
+           this.hp = hp;
+       else
+            System.err.print("Error: Minimum strength is 5.");
+    }
    
    protected int damage(){
-       int damage = randomDamage.nextInt(str)+1;
-       return damage;
+       return Randomizer.nextInt(str)+1;
    }
    
    protected void takeDamage(int damage){
@@ -42,13 +37,10 @@ public abstract class Creature{
    }
     
    protected boolean isAlive(){
-        boolean dead;
         if(hp <= 0){
-            dead = true;
+            return true;
         }
         else
-            dead = false;
-        return dead;
+            return false;
    }
-    
 }

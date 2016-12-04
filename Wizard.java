@@ -1,4 +1,4 @@
-import java.util.Random;
+
 /**
  * Write a description of class Wizard here.
  * 
@@ -7,31 +7,40 @@ import java.util.Random;
  */
 public class Wizard extends Human
 {
-    Random magic;
-    int wizardMagic;
-    private int  str;
-    /**
+    private static int MIN_HP = 12;
+    private static int MAX_HP = 25;
+    private static int MIN_STR = 12;
+    private static int MAX_STR = 30;
+
+      /**
      * Constructor for objects of class Wizard
      */
     public Wizard(int hp, int str)
     {
-        super(hp,12,25,str,10,30);
-        this.str = str;
+        super(Randomizer.nextInt(MAX_HP-MIN_HP)+MIN_HP,
+              Randomizer.nextInt(MAX_STR-MIN_STR)+MIN_STR);
     }
 
     protected int damage(){
-       wizardMagic = magic.nextInt(100)+1;
-       int damage = randomDamage.nextInt(str)+1;
-       
-       if(wizardMagic<=25)
+       int damage = super.damage();
+       int magic = Randomizer.nextInt(100)+1;
+
+       if(magic<=25 && magic>10){
             damage += 10;
-       
-       if(wizardMagic<=10)
+            System.err.println("Critical");
+        }
+                 
+       if(magic<=10 && magic>2){
            damage += 40;
+           System.err.println("Wizard-Magic");
+       }
           
-       if(wizardMagic<=2)
+       if(magic<=2){
             damage +=120;
-           
+            System.err.println("You shall not, PASS!!!");
+        }
        return damage;
     }
+    
+    
 }

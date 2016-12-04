@@ -7,24 +7,22 @@
  */
 public class Balrog extends Demon
 {
-    int str;
+    public static int MIN_HP = 80;
+    public static int MAX_HP = 200;
+    public static int MIN_STR = 50;
+    public static int MAX_STR = 100;
+    
     /**
      * Constructor for objects of class Balrog
      */
     public Balrog(int hp, int str)
     {
-        super(hp,80,200,str,50,100);
-        this.str = str;
+        super(Randomizer.nextInt(MAX_HP-MIN_HP)+MIN_HP,
+              Randomizer.nextInt(MAX_STR-MIN_STR)+MAX_STR);
     }
     
     protected int damage(){
-       int damage;
-       demonMagic = magic.nextInt(100)+1;
-       damage = randomDamage.nextInt(str)+1;
-       if(demonMagic<=5)
-           damage += randomDamage.nextInt(str)+1;
-           
-       return damage;
+        return super.damage()+super.damage();
     }
 
 }
