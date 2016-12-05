@@ -5,7 +5,7 @@
  * @author Brian McKiernan 
  * @version Version 0.1
  */
-public abstract class Creature{
+public class Creature{
    private int hp;
    private int str;
 
@@ -17,13 +17,13 @@ public abstract class Creature{
    }
    
    public Creature (int hp, int str){
-       if(str>4)
-           this.str = str;
-       else
-            System.err.print("Error: Minimum strength is 5.");
-            
        if(hp>4)
            this.hp = hp;
+       else
+            System.err.print("Error: Minimum hitpoints is 5.");
+            
+       if(str>4)
+           this.str = str;
        else
             System.err.print("Error: Minimum strength is 5.");
     }
@@ -37,10 +37,12 @@ public abstract class Creature{
    }
     
    protected boolean isAlive(){
-        if(hp <= 0){
+        if(hp > 0){
             return true;
         }
         else
             return false;
    }
+   
+   
 }

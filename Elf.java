@@ -7,8 +7,8 @@
  */
 public class Elf extends Creature
 {
-    private static final int MIN_HP = 8;
-    private static final int MAX_HP = 25;
+    private static final int MIN_HP = 12;
+    private static final int MAX_HP = 32;
     private static final int MIN_STR = 5;
     private static final int MAX_STR = 18;
     

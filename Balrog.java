@@ -22,6 +22,7 @@ public class Balrog extends Demon
     }
     
     protected int damage(){
+        System.err.println("The Blarog dealt a crushing blow");
         return super.damage()+super.damage();
     }
 

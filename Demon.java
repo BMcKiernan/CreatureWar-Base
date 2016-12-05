@@ -17,9 +17,12 @@ public abstract class Demon extends Creature
 
     protected int damage(){
        int damage = super.damage();
-       if(Randomizer.nextInt(100)<=5)
+       if(Randomizer.nextInt(100)<=5){
            damage += 50;
-          
+           System.err.println("DEMONIC MAGIC");
+        }
+           
+       
        return damage;
     }
 }
