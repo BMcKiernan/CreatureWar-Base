@@ -2,21 +2,47 @@
 /**
  * Write a description of class Creature here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Brian McKiernan 
+ * @version Version 0.1
  */
-public class Creature
-{
+public class Creature{
    private int hp;
-   private int strength;
-   
+   private int str;
+
+  
+  
    public Creature(){
-       
+      hp = 10;
+      str = 10;
+   }
+   
+   public Creature (int hp, int str){
+       if(hp>4)
+           this.hp = hp;
+       else
+            System.err.print("Error: Minimum hitpoints is 5.");
+            
+       if(str>4)
+           this.str = str;
+       else
+            System.err.print("Error: Minimum strength is 5.");
+    }
+   
+   protected int damage(){
+       return Randomizer.nextInt(str)+1;
+   }
+   
+   protected void takeDamage(int damage){
+       hp -= damage;
    }
     
-   public int damage(){
-       //TODO: change this
-       return 0;
-    }
-    
+   protected boolean isAlive(){
+        if(hp > 0){
+            return true;
+        }
+        else
+            return false;
+   }
+   
+   
 }
